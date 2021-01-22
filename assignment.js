@@ -1,26 +1,22 @@
 // Source Code: https://github.com/Ahsanul-kabir/web-day-22-Assignment-javascript
 
 
-
-
 // kilometerToMeter
 function kilometerToMeter(km) {
 
     if (km < 0) {
-        return "You Can't give negative value";
+        return "WARNING: You Can't give negative value!";
     } else if ((km >= 'a' || km <= 'z') || (km >= 'A' || km <= 'Z')) {
-        return "You Can't give String value";
+        return "WARNING: You Can't give String value!";
     } else {
+
         // main logic phase
         var meter = km * 1000;
         return meter;
     }
 }
-var resultKM = kilometerToMeter("aa"); // take return
+var resultKM = kilometerToMeter(1.2); // take return
 console.log(resultKM);
-
-
-
 
 
 
@@ -28,13 +24,13 @@ console.log(resultKM);
 function budgetCalculator(watchH, phoneH, laptopH) {
 
     if (watchH < 0 || phoneH < 0 || laptopH < 0) {
-        return "You Can't give negative value";
+        return "WARNING: You Can't give negative value and String!";
     } else if ((watchH >= 'a' || watchH <= 'z') || (watchH >= 'A' || watchH <= 'Z')) {
-        return "You Can't give String value";
+        return "WARNING: You Can't give String value!";
     } else if ((phoneH >= 'a' || phoneH <= 'z') || (phoneH >= 'A' || phoneH <= 'Z')) {
-        return "You Can't give String value";
+        return "WARNING: You Can't give String value!";
     } else if ((laptopH >= 'a' || laptopH <= 'z') || (laptopH >= 'A' || laptopH <= 'Z')) {
-        return "You Can't give String value";
+        return "WARNING: You Can't give String value!";
     } else {
         // main logic phase
         var watchPrice = 50;
@@ -49,9 +45,8 @@ function budgetCalculator(watchH, phoneH, laptopH) {
     }
 
 }
-var resultBudget = budgetCalculator("aa", "aa", "aa"); // take return
+var resultBudget = budgetCalculator(10, 20, 0); // take return
 console.log(resultBudget);
-
 
 
 
@@ -60,9 +55,9 @@ console.log(resultBudget);
 function hotelCost(days) {
 
     if (days < 0) {
-        return "You Can't give negative value";
+        return "WARNING: You Can't give negative value!";
     } else if ((days >= 'a' || days <= 'z') || (days >= 'A' || days <= 'Z')) {
-        return "You Can't give String value";
+        return "WARNING: You Can't give String value!";
     } else {
         // main logic phase
         var noDiscountPhese = 100;
@@ -86,23 +81,33 @@ function hotelCost(days) {
         return totalRentCost;
     }
 }
-var resultHotelCost = hotelCost("aa"); // take return
+var resultHotelCost = hotelCost(12); // take return
 console.log(resultHotelCost);
 
 
 // megaFriend
 function megaFriend(names) {
-    var count = 0;
-    char = names;
-    for (i = 0; i < names.length; i++) {
-        if (names[i] >= "a" && names[i] <= "z" && names[i] >= "A" && names[i] <= "A") {
-            count++;
+
+    // check given friend list is empty or not.
+    if (names.length === 0) {
+        return "WARNING: No friends listed!";
+    } else {
+        // initialize the first name as megaFriendName.
+        var megaFriendName = names[0];
+
+        for (var i = 1; i < names.length; i++) {
+            if (typeof names[i] != 'string') {
+                return "WARNING: You have to give String value!";
+            }
+            // change megaFriendName if find a larger one
+            if (megaFriendName.length < names[i].length) {
+                megaFriendName = names[i];
+            }
         }
     }
-    return count;
+    return megaFriendName;
 }
 
-var names = ['Rakim', 'Habib', 'Rafiqul', 'Ahsanul Kabir'];
-//megaFriend(names);
-resultBigName = megaFriend(names);
-console.log(resultBigName);
+var names = ['Rafiq', 'Sadik', 'Ahsanul Kabir'];
+var checkBigName = megaFriend(names);
+console.log(checkBigName);
