@@ -21,3 +21,6 @@ function budgetCalculator(watchH, phoneH, laptopH) {
 }
 var resultBudget = budgetCalculator(1, 2, 5);
 console.log(resultBudget);
+
+
+//hotelCost()
